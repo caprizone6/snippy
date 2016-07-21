@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+<header id="top" class="small-header">
+            <nav class="other-nav">
+                <div class="row">
+                    <a href="#top"> <img src="{% static 'snippy_logo_black.png' %}" alt="Snippy logo" class="logo"></a>
+                    <h1 class="snippyTitle other-nav-title">Snippy</h1>
+                    <ul class="white-nav">
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li><a href="{% url 'tools' %}">Tools</a></li>
+                        <li class="active"><a href="{% url 'works' %}">How it works</a></li>
+                        <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                        <li><a href="{% url 'login' %}">Login</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+<section class="section-steps" id="works">
+            <div class="row">
+                <h2>How it works &mdash; Simple as 1, 2, 3</h2>
+            </div>
+            <div class="row">
+                <div class="col span-1-of-2 steps-box">
+                    <img src={% static 'snps.png' %} alt="Omnifood app on iphone" class="app-screen js--vp-2">
+                </div>
+                <div class="col span-1-of-2 steps-box">
+                    <div class="work-steps">
+                        <div>1</div>
+                        <p>Upload SNP file in VCF format.</p>
+                    </div>
+                    <div class="work-steps">
+                        <div>2</div>
+                        <p>Snippy annotates your data using Oncotator.</p>
+                    </div>
+                    <div class="work-steps">
+                        <div>3</div>
+                        <p>Check you results!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+{% endblock %}

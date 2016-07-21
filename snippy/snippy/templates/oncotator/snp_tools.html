@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+<header id="top" class="small-header">
+            <nav class="other-nav">
+                <div class="row">
+                    <a href="#top"> <img src="{% static 'snippy_logo_black.png' %}" alt="Snippy logo" class="logo"></a>
+                    <h1 class="snippyTitle other-nav-title">Snippy</h1>
+                    <ul class="white-nav">
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li class="active"><a href="{% url 'tools' %}">Tools</a></li>
+                        <li><a href="{% url 'works' %}">How it works</a></li>
+                        <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                        <li><a href="{% url 'logout' %}">Log out</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <section class="fileform section-contact">
+            <p class="user">Hello {{ request.user.first_name|capfirst }},</p>
+            <div>
+                <h2>Oncotator</h2>
+                <p class="long-copy">Upload your input data below. Please note, only GRCh37/hg19 coordinates are supported.</p>
+            </div>
+            <div>
+                <form method="post" action="" enctype='multipart/form-data' class="signup-form">
+                    {% csrf_token %}
+                    {{form}}
+                    <input class="signup_submit long-copy" type="submit" value="Submit">
+                </form>
+            </div>
+        </section>
+
+
+{% endblock %}
