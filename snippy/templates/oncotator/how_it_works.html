@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+<header id="top" class="small-header">
+            <nav class="other-nav">
+                <div class="row">
+                    <a class="mobile-nav js--nav-icon"><i class="ion-navicon-round menu-icon"></i></a>
+                    <a href="#top"> <img src="{% static 'snippy_logo_black.png' %}" alt="Snippy logo" class="logo"></a>
+                    <a href="#top"> <img src="{% static 'snippy_logo_black.png' %}" alt="Snippy logo" class="logo-black"></a>
+                    <h1 class="snippyTitle other-nav-title">Snippy</h1>
+                    <ul class="white-nav js--main-nav">
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li><a href="{% url 'tools' %}">Tools</a></li>
+                        <li class="active"><a href="{% url 'works' %}">How it works</a></li>
+                        <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                        <li><a href="{% url 'login' %}">Login</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+<section class="section-steps js--section-features" id="works">
+            <div class="row">
+                <h2>How it works &mdash; Simple as 1, 2, 3</h2>
+            </div>
+            <div class="row">
+                <div class="col span-1-of-2 steps-box">
+                    <img src={% static 'worklfow' %} alt="Omnifood app on iphone" class="app-screen js--vp-2">
+                </div>
+                <div class="col span-1-of-2 steps-box">
+                    <div class="work-steps">
+                        <div>1</div>
+                        <p>Upload SNP file in VCF format.</p>
+                    </div>
+                    <div class="work-steps">
+                        <div>2</div>
+                        <p>Snippy annotates your data using Oncotator.</p>
+                    </div>
+                    <div class="work-steps">
+                        <div>3</div>
+                        <p>Check you results!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-action">
+            <div class="row">
+                <h2>Snippy in Action</h2>
+                <br>
+            </div>
+            <div class="row">
+                <div class="col span-2-of-3">
+                <div id="workflow" class="carousel slide js--vp-5" data-ride="carousel" style="width: 60%; top:0; margin-left:20.2%; position: relative;">
+                    <!-- Indicators -->
+                      <ol class="carousel-indicators">
+                        <li data-target="#workflow" data-slide-to="0" class="active"></li>
+                        <li data-target="#workflow" data-slide-to="1"></li>
+                        <li data-target="#workflow" data-slide-to="2"></li>
+                        <li data-target="#workflow" data-slide-to="3"></li>
+                      </ol>
+					<div class="carousel-inner">
+						<div class="item active">
+							<img src="../../static/laptop_step_1.png" alt="">
+						</div>
+						<div class="item">
+							<img src="../../static/laptop_step_2.png" alt="">
+						</div>
+						<div class="item">
+							<img src="../../static/laptop_step_3.png" alt="">
+						</div>
+						<div class="item">
+							<img src="../../static/laptop_step_4.png" alt="">
+						</div>
+					</div>
+
+                    <!-- Left and right controls -->
+                      <a class="left carousel-control" data-target="#workflow" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                      </a>
+                      <a class="right carousel-control" data-target="#workflow" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                      </a>
+				</div>
+                </div>
+                <div class="col span-1-of-3">
+                <div id="workflow2" class="carousel slide js--vp-5" data-ride="carousel" style="width: 43%; top:35px; margin-left:28.5%; position: relative;">
+                    <!-- Indicators -->
+                      <ol class="carousel-indicators">
+                        <li data-target="#workflow2" data-slide-to="0" class="active"></li>
+                        <li data-target="#workflow2" data-slide-to="1"></li>
+                        <li data-target="#workflow2" data-slide-to="2"></li>
+                        <li data-target="#workflow2" data-slide-to="3"></li>
+                      </ol>
+					<div class="carousel-inner">
+						<div class="item active">
+							<img src="../../static/phone_step_1.png" alt="">
+						</div>
+						<div class="item">
+							<img src="../../static/phone_step_2.png" alt="">
+						</div>
+						<div class="item">
+							<img src="../../static/phone_step_3.png" alt="">
+						</div>
+						<div class="item">
+							<img src="../../static/phone_step_4.png" alt="">
+						</div>
+					</div>
+
+                    <!-- Left and right controls -->
+                      <a class="left carousel-control" data-target="#workflow2" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                      </a>
+                      <a class="right carousel-control" data-target="#workflow2" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                      </a>
+				</div>
+                </div>
+            </div>
+        </section>
+{% endblock %}

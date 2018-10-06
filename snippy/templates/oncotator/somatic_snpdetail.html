@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+    <header id="top" class="small-header">
+            <nav class="other-nav">
+                <div class="row">
+                    <a class="mobile-nav js--nav-icon"><i class="ion-navicon-round menu-icon"></i></a>
+                    <a href="#top"> <img src="{% static 'snippy_logo_black.png' %}" alt="Snippy logo" class="logo"></a>
+                    <a href="#top"> <img src="{% static 'snippy_logo_black.png' %}" alt="Snippy logo" class="logo-black"></a>
+                    <h1 class="snippyTitle other-nav-title">Snippy</h1>
+                    <ul class="white-nav">
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li class="active"><a href="{% url 'tools' %}">Tools</a></li>
+                        <li><a href="{% url 'works' %}">How it works</a></li>
+                        <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                        <li><a href="{% url 'logout' %}">Log out</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <nav class="inside-nav">
+                <div class="row">
+                    <ul class="tool-nav js--main-nav">
+                        <li><a href="{% url 'file_form' %}">Upload VCF</a></li>
+                        <li><i class="ion-ios-arrow-forward"></i></li>
+                        <li><a href="{% url 'result' %}">Study Manager</a></li>
+                        <li><i class="ion-ios-arrow-forward"></i></li>
+                        <li class="active"><a href="">Results</a></li>
+                        <li><i class="ion-ios-arrow-forward"></i></li>
+                        <li><a href="{% url 'SomaticReportDraft' file.id %}">Report</a></li>
+                        <li><i class="ion-ios-arrow-forward"></i></li>
+                        <li><a href="{% url 'somatic_gene_network' file.id%}">Protein Network</a></li>
+                        <li><a class="logout" href="{% url 'logout' %}">Log out</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+    <section class="section-contact js--section-result">
+    <p class="user">Hello {{ request.user.first_name|capfirst }},</p>
+            <div>
+                <h2> Somatic Muatation Result</h2>
+            </div>
+
+    <table class="snptable display" id="table_id">
+        <thead>
+                <tr>
+                    <th>Gene</th>
+                    <th>Chromosome</th>
+                    <th>Start</th>
+                    <th>End</th>
+                    <th>Reference Allele</th>
+                    <th>Alternate Allele</th>
+                    <th>Variant Class</th>
+                    <th>Variant Type</th>
+                </tr>
+        </thead>
+        <tbody>
+    	{% for snp in snps %}
+            <tr>
+    		    <td th-data="Gene">
+    				{{ snp.gene }}
+    		    </td>
+                <td th-data="Chromosome">
+                    {{ snp.chromosome }}
+                </td>
+                <td th-data="Start">
+                    {{ snp.start }}
+                </td>
+                <td th-data="End">
+                {{ snp.end }}
+                </td>
+                <td th-data="Reference Allele">
+                {{ snp.ref_allele }}
+                </td>
+                <td th-data="Alternate Allele">
+                {{ snp.alt_allele }}
+                </td>
+                <td th-data="Variant Class">
+                {{ snp.variant_class }}
+                </td>
+                <td th-data="Variant Type">
+                {{ snp.variant_type }}
+                </td>
+            </tr>
+    	{% endfor %}
+        </tbody>
+            </table>
+            <div class="signup_submit">
+                <img src="../../static/plant_loading.gif" id="loading_image">
+                <a class="btn-my btn-full signup_submit report-btn" href="{% url 'SomaticReportDraft' file.id %}">Generate Reprot</a>
+                <a class="btn-my btn-full signup_submit network-btn" href="{% url 'somatic_gene_network' file.id%}">Protein Network</a>
+            </div>
+    </section>
+{% endblock %}

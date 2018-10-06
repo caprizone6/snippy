@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+<header id="top" class="small-header">
+            <nav class="other-nav">
+                <div class="row">
+                    <a class="mobile-nav js--nav-icon"><i class="ion-navicon-round menu-icon"></i></a>
+                    <a href="#top"> <img src="{% static 'snippy_logo_black.png' %}" alt="Snippy logo" class="logo"></a>
+                    <a href="#top"> <img src="{% static 'snippy_logo_black.png' %}" alt="Snippy logo" class="logo-black"></a>
+                    <h1 class="snippyTitle other-nav-title">Snippy</h1>
+                    <ul class="white-nav js--main-nav">
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li><a href="{% url 'tools' %}">Tools</a></li>
+                        <li><a href="{% url 'works' %}">How it works</a></li>
+                        <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                        <li  class="active"><a href="{% url 'login' %}">Login</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <section class="section-plans js--section-features" id="signup">
+            <div class="row">
+                <h2>Sign Up Now to Explore SNP Tools!</h2>
+            </div>
+            <div class="row">
+                <div class="col span-1-of-3">
+                    <div class="plan-box js--vp-4">
+                    <div>
+                        <h3>Premium</h3>
+                        <p class="plan-price">$20 <span>/ month</span></p>
+                    </div>
+                    <div>
+                        <ul>
+                            <li><i class="ion-ios-checkmark-empty icon-small"></i>Access all SNP tools</li>
+                            <li><i class="ion-ios-checkmark-empty icon-small"></i>Access on any device</li>
+                            <li><i class="ion-ios-checkmark-empty icon-small"></i>Share with colleagues</li>
+                            <li><i class="ion-ios-checkmark-empty icon-small"></i>Post analysis by real scientists</li>
+                            <li><i class="ion-ios-checkmark-empty icon-small"></i>Compatible with AWS</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <a href="{% url 'signup_form' %}" class="btn-my btn-full">Sign up now</a>
+                    </div>
+                    </div>
+                </div>
+                <div class="col span-1-of-3">
+                    <div class="plan-box">
+                    <div>
+                        <h3>Pro</h3>
+                        <p class="plan-price">$10 <span>/ month</span></p>
+                    </div>
+                    <div>
+                        <ul>
+                            <li><i class="ion-ios-checkmark-empty icon-small"></i>Access all SNP tools</li>
+                            <li><i class="ion-ios-checkmark-empty icon-small"></i>Access on any device</li>
+                            <li><i class="ion-ios-checkmark-empty icon-small"></i>Share with colleagues</li>
+                            <li><i class="ion-ios-close-empty icon-small"></i></li>
+                            <li><i class="ion-ios-close-empty icon-small"></i></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <a href="{% url 'signup_form' %}" class="btn-my btn-ghost">Sign up now</a>
+                    </div>
+                    </div>
+                </div>
+                <div class="col span-1-of-3">
+                    <div class="plan-box">
+                    <div>
+                        <h3>Basic</h3>
+                        <p class="plan-price">Free</p>
+                    </div>
+                    <div>
+                        <ul>
+                            <li><i class="ion-ios-checkmark-empty icon-small"></i>Access all SNP tools</li>
+                            <li><i class="ion-ios-checkmark-empty icon-small"></i>Web access</li>
+                            <li><i class="ion-ios-close-empty icon-small"></i></li>
+                            <li><i class="ion-ios-close-empty icon-small"></i></li>
+                            <li><i class="ion-ios-close-empty icon-small"></i></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <a href="{% url 'signup_form' %}" class="btn-my btn-ghost">Sign up now</a>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="signup long-copy">
+                        <h4>Already a Member? <a href="{% url 'login' %}">Sign in!</a></h4>
+                    </div>
+        </section>
+{% endblock %}

@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+<header id="top" class="small-header">
+            <nav class="other-nav">
+                <div class="row">
+                    <a class="mobile-nav js--nav-icon"><i class="ion-navicon-round menu-icon"></i></a>
+                    <a href="#top"> <img src="{% static 'snippy_logo_black.png' %}" alt="Snippy logo" class="logo"></a>
+                    <a href="#top"> <img src="{% static 'snippy_logo_black.png' %}" alt="Snippy logo" class="logo-black"></a>
+                    <h1 class="snippyTitle other-nav-title">Snippy</h1>
+                    <ul class="white-nav">
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li class="active"><a href="{% url 'tools' %}">Tools</a></li>
+                        <li><a href="{% url 'works' %}">How it works</a></li>
+                        <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                        <li><a href="{% url 'logout' %}">Log out</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <nav class="inside-nav">
+                <div class="row">
+                    <ul class="tool-nav js--main-nav">
+                        <li><a href="{% url 'file_form' %}">Upload VCF</a></li>
+                        <li><i class="ion-ios-arrow-forward"></i></li>
+                        <li class="active"><a href="{% url 'result' %}">Study Manager</a></li>
+                        <li><i class="ion-ios-arrow-forward"></i></li>
+                        <li><a class="disabled">Results</a></li>
+                        <li><i class="ion-ios-arrow-forward"></i></li>
+                        <li><a class="disabled">Report</a></li>
+                        <li><i class="ion-ios-arrow-forward"></i></li>
+                        <li><a class="disabled">Protein Network</a></li>
+                        <li><a class="logout" href="{% url 'logout' %}">Log out</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+    <section class="section-contact js--section-result">
+            <p class="user">Hello {{ request.user.first_name|capfirst }},</p>
+            <div>
+                <h2>Study Manager</h2>
+            </div>
+            <table class="filetable display" id="table_id">
+                <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>VCF File</th>
+                    <th>Submitter</th>
+                    <th>Upload Time</th>
+                    <th>Results</th>
+                </tr>
+                </thead>
+                <tbody>
+    	{% for file in files %}
+            <tr>
+    		    <td th-data="Title">
+    				{{ file.title|capfirst }}
+    		    </td>
+                <td th-data="VCF File">
+                    {{ file.file|cut:"./" }}
+                </td>
+                <td th-data="Submitter">
+                    {{ file.user.get_full_name|capfirst }}
+                </td>
+                <td th-data="Upload Time">
+                {{ file.upload_time| date:"d/m/y - g:i A" }}
+                </td>
+                <td th-data="Results">
+{#                    <a href="{% url 'snp_detail' file.id %}">{{ file.result|cut:"./"|cut:"-%d" }}</a>#}
+                    <a href="{% url 'somatic_snp_detail' file.id %}">Somatic Mutation</a>
+                    <a>&nbsp</a>
+                    <a href="{% url 'germline_snp_detail' file.id %}">Germline Mutation</a>
+                </td>
+            </tr>
+    	{% endfor %}
+                </tbody>
+            </table>
+            <div class="signup_submit">
+                <a class="btn-my btn-full" href="/snp_tools/">Upload new VCF file</a>
+            </div>
+        </section>
+
+{% endblock %}

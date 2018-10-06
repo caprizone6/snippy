@@ -1,0 +1,232 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+        <header id="top">
+            <nav>
+                <div class="row">
+                    <a class="mobile-nav js--nav-icon"><i class="ion-navicon-round menu-icon"></i></a>
+                    <img src="{% static 'snippy_logo_white.png' %}" alt="Snippy logo" class="logo">
+                    <a href="#top"> <img src="{% static 'snippy_logo_black.png' %}" alt="Snippy logo" class="logo-black"></a>
+                    <h1 class="snippyTitle">Snippy</h1>
+                    <ul class="main-nav js--main-nav">
+                        <li class="active"><a href="{% url 'index' %}">Home</a></li>
+                        <li><a href="{% url 'tools' %}">Tools</a></li>
+                        <li><a href="{% url 'works' %}">How it works</a></li>
+                        <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                        <li><a href="{% url 'login' %}">Login</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="hero-text-box">
+                <h1>Tired of giving meaning to your SNPs?<br> Let us do that for you.</h1>
+                <a class="btn-my btn-full js--scroll-to-plan" href="#">Let's go!</a>
+                <a class="btn-my btn-ghost js--scroll-to-start" href="#">Show me details</a>
+            </div>
+
+        </header>
+        <section class="section-features js--section-features" id="features">
+            <div class="row">
+                <h2>The way it should be.</h2>
+                <p class="long-copy">
+                    Hello, I am Snippy, I am a friend who will accompany you in your NGS adventure and will help with finding useful information for your SNPs from raw VCF file.
+                </p>
+            </div>
+            <div class="row js--vp-1">
+                <div class="col span-1-of-4 box">
+                    <i class="ion-ios-location-outline icon-big"></i>
+                    <h3>Access Anywhere</h3>
+                    <p>You can access Snippy on any device any where, it can be accessed from PC to phone with the same functionality. Easy to read and access on any device.
+                    </p>
+                </div>
+                 <div class="col span-1-of-4 box">
+                    <i class="ion-ios-locked-outline icon-big"></i>
+                    <h3>You are Secured</h3>
+                    <p>Your results are secured! Snippy is designed in Django, which is providing Cross-Site Request Forgery (CSRF) protection - best security for the web tools.
+                    </p>
+                </div>
+                 <div class="col span-1-of-4 box">
+                    <i class="ion-ios-navigate-outline icon-big"></i>
+                    <h3>One Destination</h3>
+                    <p>You don't have to leave Snippy while working with your SNPs. All steps and tools are available in the same place. No jumping between software or even browser tabs.
+                    </p>
+                </div>
+                 <div class="col span-1-of-4 box">
+                    <i class="ion-ios-people-outline icon-big"></i>
+                    <h3>Trusted Sources</h3>
+                    <p>Snippy is using trusted tools for SNP analysis. Oncotator is designed by well trusted Broad Institute and String is supported by EMBL and SIB.
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section-steps" id="works">
+            <div class="row">
+                <h2>How it works &mdash; Simple as 1, 2, 3</h2>
+            </div>
+            <div class="row">
+                <div class="col span-1-of-2 steps-box">
+                    <img src="{% static 'worklfow' %}" alt="" class="app-screen js--vp-2">
+                </div>
+                <div class="col span-1-of-2 steps-box">
+                    <div class="work-steps">
+                        <div>1</div>
+                        <p>Upload SNP file in VCF format.</p>
+                    </div>
+                    <div class="work-steps">
+                        <div>2</div>
+                        <p>Snippy annotates your data using Oncotator.</p>
+                    </div>
+                    <div class="work-steps">
+                        <div>3</div>
+                        <p>Check you results!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-action">
+            <div class="row">
+                <h2>Snippy in Action</h2>
+                <br>
+            </div>
+            <div class="row">
+                <div class="col span-2-of-3">
+                <div id="workflow" class="carousel slide js--vp-5" data-ride="carousel" style="width: 60%; top:0; margin-left:20.2%; position: relative;">
+                    <!-- Indicators -->
+                      <ol class="carousel-indicators">
+                        <li data-target="#workflow" data-slide-to="0" class="active"></li>
+                        <li data-target="#workflow" data-slide-to="1"></li>
+                        <li data-target="#workflow" data-slide-to="2"></li>
+                        <li data-target="#workflow" data-slide-to="3"></li>
+                      </ol>
+					<div class="carousel-inner">
+						<div class="item active">
+							<img src="../../static/laptop_step_1.png" alt="">
+						</div>
+						<div class="item">
+							<img src="../../static/laptop_step_2.png" alt="">
+						</div>
+						<div class="item">
+							<img src="../../static/laptop_step_3.png" alt="">
+						</div>
+						<div class="item">
+							<img src="../../static/laptop_step_4.png" alt="">
+						</div>
+					</div>
+
+                    <!-- Left and right controls -->
+                      <a class="left carousel-control" data-target="#workflow" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                      </a>
+                      <a class="right carousel-control" data-target="#workflow" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                      </a>
+				</div>
+                </div>
+                <div class="col span-1-of-3">
+                <div id="workflow2" class="carousel slide js--vp-5" data-ride="carousel" style="width: 43%; top:35px; margin-left:28.5%; position: relative;">
+                    <!-- Indicators -->
+                      <ol class="carousel-indicators">
+                        <li data-target="#workflow2" data-slide-to="0" class="active"></li>
+                        <li data-target="#workflow2" data-slide-to="1"></li>
+                        <li data-target="#workflow2" data-slide-to="2"></li>
+                        <li data-target="#workflow2" data-slide-to="3"></li>
+                      </ol>
+					<div class="carousel-inner">
+						<div class="item active">
+							<img src="../../static/phone_step_1.png" alt="">
+						</div>
+						<div class="item">
+							<img src="../../static/phone_step_2.png" alt="">
+						</div>
+						<div class="item">
+							<img src="../../static/phone_step_3.png" alt="">
+						</div>
+						<div class="item">
+							<img src="../../static/phone_step_4.png" alt="">
+						</div>
+					</div>
+
+                    <!-- Left and right controls -->
+                      <a class="left carousel-control" data-target="#workflow2" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                      </a>
+                      <a class="right carousel-control" data-target="#workflow2" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                      </a>
+				</div>
+                </div>
+            </div>
+        </section>
+
+        
+        <section class="section-plans js--section-plans" id="signup">
+            <div class="row">
+                <h2>Sign Up Now to Explore SNP Tools!</h2>
+            </div>
+            <div class="row">
+                <div class="col span-1-of-3">
+                    <div class="plan-box js--vp-4">
+                    <div>
+                        <h3>Premium</h3>
+                        <p class="plan-price">$20 <span>/ month</span></p>
+                    </div>
+                    <div>
+                        <ul>
+                            <li><i class="ion-ios-checkmark-empty icon-small"></i>Access all SNP tools</li>
+                            <li><i class="ion-ios-checkmark-empty icon-small"></i>Access on any device</li>
+                            <li><i class="ion-ios-checkmark-empty icon-small"></i>Share with colleagues</li>
+                            <li><i class="ion-ios-checkmark-empty icon-small"></i>Post analysis by real scientists</li>
+                            <li><i class="ion-ios-checkmark-empty icon-small"></i>Compatible with AWS</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <a href="{% url 'signup_form' %}" class="btn-my btn-full">Sign up now</a>
+                    </div>
+                    </div>
+                </div>
+                <div class="col span-1-of-3">
+                    <div class="plan-box">
+                    <div>
+                        <h3>Pro</h3>
+                        <p class="plan-price">$10 <span>/ month</span></p>
+                    </div>
+                    <div>
+                        <ul>
+                            <li><i class="ion-ios-checkmark-empty icon-small"></i>Access all SNP tools</li>
+                            <li><i class="ion-ios-checkmark-empty icon-small"></i>Access on any device</li>
+                            <li><i class="ion-ios-checkmark-empty icon-small"></i>Share with colleagues</li>
+                            <li><i class="ion-ios-close-empty icon-small"></i></li>
+                            <li><i class="ion-ios-close-empty icon-small"></i></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <a href="{% url 'signup_form' %}" class="btn-my btn-ghost">Sign up now</a>
+                    </div>
+                    </div>
+                </div>
+                <div class="col span-1-of-3">
+                    <div class="plan-box">
+                    <div>
+                        <h3>Basic</h3>
+                        <p class="plan-price">Free</p>
+                    </div>
+                    <div>
+                        <ul>
+                            <li><i class="ion-ios-checkmark-empty icon-small"></i>Access all SNP tools</li>
+                            <li><i class="ion-ios-checkmark-empty icon-small"></i>Web access</li>
+                            <li><i class="ion-ios-close-empty icon-small"></i></li>
+                            <li><i class="ion-ios-close-empty icon-small"></i></li>
+                            <li><i class="ion-ios-close-empty icon-small"></i></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <a href="{% url 'signup_form' %}" class="btn-my btn-ghost">Sign up now</a>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+ {% endblock %}     

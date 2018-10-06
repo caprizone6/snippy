@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+    <header id="top" class="small-header">
+            <nav class="other-nav">
+                <div class="row">
+                    <a class="mobile-nav js--nav-icon"><i class="ion-navicon-round menu-icon"></i></a>
+                    <a href="#top"> <img src="{% static 'snippy_logo_black.png' %}" alt="Snippy logo" class="logo"></a>
+                    <a href="#top"> <img src="{% static 'snippy_logo_black.png' %}" alt="Snippy logo" class="logo-black"></a>
+                    <h1 class="snippyTitle other-nav-title">Snippy</h1>
+                    <ul class="white-nav">
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li class="active"><a href="{% url 'tools' %}">Tools</a></li>
+                        <li><a href="{% url 'works' %}">How it works</a></li>
+                        <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                        <li><a href="{% url 'logout' %}">Log out</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <nav class="inside-nav">
+                <div class="row">
+                    <ul class="tool-nav js--main-nav">
+                        <li><a href="{% url 'file_form' %}">Upload VCF</a></li>
+                        <li><i class="ion-ios-arrow-forward"></i></li>
+                        <li><a href="{% url 'result' %}">Study Manager</a></li>
+                        <li><i class="ion-ios-arrow-forward"></i></li>
+                        <li><a href="">Results</a></li>
+                        <li><i class="ion-ios-arrow-forward"></i></li>
+                        <li class="active"><a href="">Report</a></li>
+                        <li><i class="ion-ios-arrow-forward"></i></li>
+                        <li><a href="">Protein Network</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+    <section class="section-contact js--section-result">
+        <div>
+            <h2> Report </h2>
+        </div>
+        <div class="signup_submit">
+            <a class="btn-my btn-full" href="../../../media/GERMLINE_REPORT_DRAFT.docx">Download report (.doc)</a>
+        </div>
+        <div class="long-copy pdfview">
+            <iframe src="../../../media/GERMLINE_REPORT_DRAFT.pdf" height="700px" width="100%"></iframe>
+        </div>
+    </section>
+{% endblock %}
