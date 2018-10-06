@@ -1,9 +1,10 @@
 from django.conf.urls import *
 from django.contrib import admin
+from django.contrib.auth.views import login
 from django.conf import settings
 from django.conf.urls.static import static
-from snippy import views as snippy_views
-from oncotator import views as oncotator_views
+from snippy.views import index, tools, works, signup, logout_view, signup_form, contact
+from oncotator.views import file_form, result, somatic_gene_network, germline_gene_network, somatic_snp_detail, germline_snp_detail, SomaticReportDraft, GermlineReportDraft
 
 # these patterns defines which page to display according to url pattern
 # url pattern triggers view in particular views.py file
@@ -11,23 +12,23 @@ from oncotator import views as oncotator_views
 
 urlpatterns = [
   
-    url(r'^$', 'snippy_views.index', name='index'),
-    url(r'^tools/', 'snippy_views.tools', name='tools'),
-    url(r'^works/', 'snippy_views.works', name='works'),
-    url(r'^contact/', 'snippy_views.contact', name='contact'),
-    url(r'^login/', 'django.contrib.auth.views.login', name='login'),
-    url(r'^signup/', 'snippy_views.signup', name='signup'),
-    url(r'^snp_tools/', 'oncotator_views.file_form', name='file_form'),
-    url(r'^logout/', 'snippy_views.logout_view', name='logout'),
-    url(r'^result/', 'oncotator_views.result', name='result'),
-    url(r'^signup_form/', 'snippy_views.signup_form', name='signup_form'),
-    url(r'^accounts/profile/', 'oncotator_views.result', name='result'),
-    url(r'^somatic_snp_detail/(?P<id>\d+)/', 'oncotator_views.somatic_snp_detail', name='somatic_snp_detail'),
-    url(r'^germline_snp_detail/(?P<id>\d+)/', 'oncotator_views.germline_snp_detail', name='germline_snp_detail'),
-    url(r'^somatic_report/(?P<id>\d+)/', 'oncotator_views.SomaticReportDraft', name='SomaticReportDraft'),
-    url(r'^germline_report/(?P<id>\d+)/', 'oncotator_views.GermlineReportDraft', name='GermlineReportDraft'),
-    url(r'^germline_gene_network/(?P<id>\d+)/', 'oncotator_views.germline_gene_network', name='germline_gene_network'),
-    url(r'^somatic_gene_network/(?P<id>\d+)/', 'oncotator_views.somatic_gene_network', name='somatic_gene_network'),
+    url(r'^$', index, name='index'),
+    url(r'^tools/', tools, name='tools'),
+    url(r'^works/', works, name='works'),
+    url(r'^contact/', contact, name='contact'),
+    url(r'^login/', login, name='login'),
+    url(r'^signup/', signup, name='signup'),
+    url(r'^snp_tools/', file_form, name='file_form'),
+    url(r'^logout/', logout_view, name='logout'),
+    url(r'^result/', result, name='result'),
+    url(r'^signup_form/', signup_form, name='signup_form'),
+    url(r'^accounts/profile/', result, name='result'),
+    url(r'^somatic_snp_detail/(?P<id>\d+)/', somatic_snp_detail, name='somatic_snp_detail'),
+    url(r'^germline_snp_detail/(?P<id>\d+)/', germline_snp_detail, name='germline_snp_detail'),
+    url(r'^somatic_report/(?P<id>\d+)/', SomaticReportDraft, name='SomaticReportDraft'),
+    url(r'^germline_report/(?P<id>\d+)/', GermlineReportDraft, name='GermlineReportDraft'),
+    url(r'^germline_gene_network/(?P<id>\d+)/', germline_gene_network, name='germline_gene_network'),
+    url(r'^somatic_gene_network/(?P<id>\d+)/', somatic_gene_network, name='somatic_gene_network'),
     url(r'^admin/', include(admin.site.urls)),
 ]
 
