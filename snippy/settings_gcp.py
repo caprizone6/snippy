@@ -25,7 +25,7 @@ SECRET_KEY = 'pc5ax7@h2llg01)$5j4k9qe51^xzxyyus$dl3u1vwb9)^isn3b'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'snippy',
     'oncotator',
     'crispy_forms',
 )
@@ -55,6 +56,7 @@ MIDDLEWARE_CLASSES = (
 )
 
 ROOT_URLCONF = 'snippy.urls'
+WSGI_APPLICATION = 'snippy.wsgi.application'
 
 TEMPLATES = [
     {
@@ -65,6 +67,7 @@ TEMPLATES = [
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
+                'django.core.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
@@ -80,8 +83,19 @@ WSGI_APPLICATION = 'snippy.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'HOST': '/cloudsql/bioinfo-apps:us-east1:bioinfo-apps-db',
+        'PORT': '5432',
+        'NAME': 'bioinfo-apps-db',
+        'USER': 'postgres',
+        'PASSWORD': 'FKuNmzyHbofjE9K7'
+        # 'HOST': 'localhost',
+        # 'PORT': '5432',
+        # 'NAME': 'snippy',
+        # 'USER': 'postgres',
+        # 'PASSWORD': 'DJANGO'
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -103,7 +117,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
-STATIC_URL = '/static/'
+# STATIC_URL = '/static/'
+STATIC_URL = 'https://storage.googleapis.com/bioinfo-apps-static/static/'
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'bioinfo-apps-static/static/')
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'snippy', 'static'),
