@@ -1,7 +1,7 @@
 from django.shortcuts import render, render_to_response
 from django.http import HttpResponseRedirect, HttpResponse, Http404
 from django.utils import timezone
-from django.core.context_processors import csrf
+from django.template.context_processors import csrf
 from forms import FileForm
 from models import CSVFile, germline_snp, somatic_snp
 from django.contrib.auth.decorators import login_required
@@ -63,10 +63,13 @@ def file_form(request):
                     mutation = json.loads(oncoTator_response.text)
                     if "ERROR" in mutation:
                         logs.write("OncoTator is giving error for url:" + oncoTator + " Error message: " + str(oncoTator_response.text))
-                    elif chr.group(1) == 'X' or chr.group(1) == 'Y':
-                        germline_mutation_array.append(mutation)
                     else:
-                        somatic_mutation_array.append(mutation)
+
+                        if mutation["CGC_Cancer Germline Mut"] == "yes":
+                            germline_mutation_array.append(mutation)
+
+                        if mutation["CGC_Cancer Somatic Mut"] == "yes":
+                            somatic_mutation_array.append(mutation)
             logs.close()
 
             # write values from arrays to tsv files
