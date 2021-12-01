@@ -3,7 +3,7 @@ Snippy is a SNP annotation tool that annotates point mutations and indels with f
 
 Snippy is designed with Django, so all the directories and files are following Django naming convention.  
 
-##Snippy File Structure (Django)
+## Snippy File Structure (Django)
 
     ├── db.sqlite3                  # Django database
     ├── example\ VCF\ files         # Example files for testing
